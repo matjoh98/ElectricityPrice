@@ -10,5 +10,5 @@ if __name__ == "__main__":
     res = conn.getresponse()
 
     data = json.loads(res.read().decode())
-    fig = px.line(y=[i["SEK_per_kWh"] for i in data2], x=[i["time_start"] for i in data2])
+    fig = px.line(y=[i["SEK_per_kWh"] for i in data], x=[i["time_start"] for i in data])
     fig.write_html("index.html")
