@@ -3,7 +3,7 @@ name: run main.py
 on:
   schedule:
     - cron: '15 14 * * *' # At 14:15 every day
-
+  push:
 jobs:
   build:
     runs-on: ubuntu-latest
