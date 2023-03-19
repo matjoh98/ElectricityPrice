@@ -44,3 +44,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Jupyter dev
+.ipynb
+.ipynb_checkpoints
