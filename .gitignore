@@ -48,3 +48,6 @@ venv.bak/
 # Jupyter dev
 .ipynb
 .ipynb_checkpoints
+
+# HTML
+.html
