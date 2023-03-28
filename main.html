@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Website</title>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+		#switchBtn {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 12px 24px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 18px;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		
+		#switchBtn:hover {
+			background-color: #3e8e41;
+		}
+        body {
+			font-family: 'Roboto', sans-serif;
+			background-color: #f1f1f1;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			padding: 1rem;
+			background-color: #000;
+			color: white;
+			position: relative;
+		}
+		h1 {
+			font-size: 4rem;
+			margin: 0;
+			font-weight: 700;
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			line-height: 2;
+			position: relative;
+			z-index: 2;
+			animation: neon 1.5s ease-in-out infinite alternate;
+			cursor: pointer;
+			transition: transform 0.2s ease-out;
+			text-shadow: 0 0 10px #fff,
+			0 0 20px #fff,
+			0 0 30px #fff,
+			0 0 40px #00d4ff,
+			0 0 70px #00d4ff,
+			0 0 80px #00d4ff,
+			0 0 100px #00d4ff,
+			0 0 150px #00d4ff;
+		}
+		h1:hover {
+			transform: scale(1.1);
+	</style>
+</head>
+<body>
+    <center>
+
+        <h1>Electricity Spot Price</h1>
+        <div id="plot1"></div>
+        <div id="plot2"></div>
+        <button id="switchBtn" onclick="togglePlots()">Tomorrows electricity price</button>
+        <script>
+            var plot1 = Plotly.d3.select("#plot1").html('<iframe src="Today.html" width="2048" height="1024"></iframe>');
+            var plot2 = Plotly.d3.select("#plot2").html('<iframe src="Tomorrow.html" width="2048" height="1024"></iframe>');
+            plot2.style("display", "none");
+            function togglePlots() {
+                if (plot1.style("display") !== "none") {
+                    plot1.style("display", "none");
+                    plot2.style("display", "block");
+                    document.getElementById("switchBtn").textContent = "Todays electricity price";
+                } else {
+                    plot1.style("display", "block");
+                    plot2.style("display", "none");
+                    document.getElementById("switchBtn").textContent = "Tomorrows electricity price";
+                }
+            }
+        </script>
+</body>
+</html>
