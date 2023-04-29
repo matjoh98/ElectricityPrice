@@ -35,7 +35,7 @@ def api_and_plot(payload, today):
 
     final_price = [item for sublist in [[i["SEK_per_kWh"]]*2 for i in data] for item in sublist]
     final_time = [item for sublist in [[i["time_start"], i["time_end"]] for i in data] for item in sublist]
-    print(final_price)
+
     fig = px.line(y=final_price, x=final_time)
     fig.update_layout(title='Electricity Spot price for date {}-{}-{}'.format(year, month, day),
                     xaxis_title='Time',
